@@ -13,7 +13,7 @@ class CheckInvoiceController extends Controller
         $invoiceExists = Invoice::where('invoice_name', $invoiceName)->exists();
 
         if ($invoiceExists) {
-            return $this->show($invoiceName);
+            return redirect()->route('invoice.show', ['invoice_name' => $invoiceName]);
         } else {
             return view('guest.checkinvoice', ['invoiceCondition' => false]);
         }
@@ -24,6 +24,6 @@ class CheckInvoiceController extends Controller
         $invoice = Invoice::where('invoice_name', $invoiceName)->first();
         $invoiceCondition = true;
 
-        return view('guest.checkinvoice', compact('invoice', 'invoiceCondition'));
+        return view('guest.invoice', compact('invoice', 'invoiceCondition'));
     }
 }

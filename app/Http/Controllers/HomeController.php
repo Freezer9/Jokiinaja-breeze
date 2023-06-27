@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        $seller = Auth::user()->seller;
+        $seller = Auth::user()->seller->product()->with('transaction')->get();
 
         return view('seller.main', compact(['seller']));
     }

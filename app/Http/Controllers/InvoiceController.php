@@ -13,10 +13,10 @@ class InvoiceController extends Controller
 {
     public function index()
     {
-        $invoice = Auth::user()->seller->product->flatMap->transaction;
+        $transaction = Auth::user()->seller->product()->with('transaction')->get();
 
         return view('seller.transaction', [
-            'result' => $invoice,
+            'result' => $transaction,
         ]);
     }
 
@@ -31,9 +31,11 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Invoice $invoice)
+    public function show(Invoice $invoice, $transactionId)
     {
-        //
+        $transaction = Auth::user()->seller->product->flatMap->transaction->where('transaction_id', $transactionId)->first();
+
+        return view('seller.seller-invoice', compact('transaction'));
     }
 
     /**

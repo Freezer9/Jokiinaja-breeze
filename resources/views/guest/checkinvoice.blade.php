@@ -12,12 +12,11 @@
 
   <div>
     <div class="bg-tridary rounded-3xl bg-tridary hover:shadow-slate-900 hover:z-40 p-8">
-      <h1 class="text-center text-2xl font-semibold">Check Invoice</h1>
       <form action="{{ route('invoice.check') }}" method="post" class="flex flex-col gap-6 text-slate-50 pt-4">
         @method('POST')
         @csrf
         <div class="relative">
-          <x-text-input id="invoice_name" class="block w-full" type="number" name="invoice_name" :value="old('invoice_name')" required autofocus placeholder="Your invoice"/>            
+          <x-text-input id="invoice_name" class="block w-full" type="text" name="invoice_name" :value="old('invoice_name')" required autofocus placeholder="Your invoice"/>            
           <span class="absolute inset-y-0 right-0 flex items-center pr-3">
             <button type="submit" class="bg-blue-500 hover:bg-blue-600 hover:scale-105 transition-all text-white px-4 py-2 rounded-lg focus:outline-none">
               <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

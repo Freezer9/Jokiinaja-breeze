@@ -17,16 +17,21 @@ class Transaction extends Model
 
     public function invoice()
     {
-        return $this->hasOne(Invoice::class, 'transaction_id', 'transaction_id');
+        return $this->belongsTo(Invoice::class, 'transaction_id', 'transaction_id');
     }
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id', 'product_id');
+        return $this->hasOne(Product::class, 'product_id', 'product_id');
     }
 
     public function payment()
     {
         return $this->hasOne(Payment::class, 'payment_id', 'payment_id');
+    }
+
+    public function chat()
+    {
+        return $this->hasMany(Chat::class, 'chat_id', 'chat_id');
     }
 }

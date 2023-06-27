@@ -13,7 +13,6 @@
 
   <div>
     <div class="bg-tridary rounded-3xl bg-tridary hover:shadow-slate-900 hover:z-40 p-10">
-      <h1 class=" text-center text-2xl font-semibold">Contact Us</h1>
       <form action="{{ route('contact.check') }}" method="POST" class="gap-5 pt-5" enctype="multipart/form-data">
         @method('POST')
         @csrf

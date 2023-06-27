@@ -7,7 +7,7 @@
   
   <section class="container">
 
-      @include('seller.profile-seller')
+      @include('seller.seller-profile')
 
       <!-- Add Products -->
       <hr class="mt-2">
@@ -72,9 +72,9 @@
 
         @isset($seller->product)
         
-          @if ($seller->product->isEmpty())
-              <p class="w-full text-center text-2xl text-red-500 font-bold mt-5 mb-5">Your Products is Empty!</p>
-          @else
+        @if ($seller->product->isEmpty())
+            <p class="w-full text-center text-2xl text-red-500 font-bold mt-5 mb-5">Your Products is Empty!</p>
+        @else
 
             @foreach ($seller->product as $product)
               
@@ -103,7 +103,7 @@
             </div>
           
             @endforeach
-          @endif
+        @endif
 
         @else
               <p class="w-full text-center text-2xl text-red-500 font-bold mt-5 mb-5">Your Products is Empty!</p>

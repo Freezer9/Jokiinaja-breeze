@@ -9,14 +9,15 @@
 <section class="container mx-auto md:px-14 px-5 py-3">
   <div class="mb-5">
 
-    @isset($seller->product)
-        
-    @if ($seller->product->isEmpty())
-        <p class="w-full text-center text-2xl text-red-500 font-bold mt-5 mb-5">Your Products is Empty!</p>
+    @isset($result)
+    
+    @if ($result->isEmpty())
+      <p class="w-full text-center text-2xl text-red-500 font-bold mt-5 mb-5">Your Transactions is Empty!</p>
     @else
 
-    @foreach ($result as $row)
-        
+    @foreach ($result as $product)
+        @foreach ($product->transaction as $row)
+            
     <div class="shadow-lg rounded-lg border mt-5 
     @if ($row->invoice->transaction_status == "Sudah Selesai!")
       bg-green-500 text-black border border-green-800
@@ -93,11 +94,12 @@
               <a class="btn mb-2 bg-green-400 hover:bg-green-500">Confirm</a>
               <a class="btn mb-2 bg-green-400 hover:bg-green-500 ">Done</a>
               <a class="btn mb-2 bg-red-400 hover:bg-red-500">Cancel</a>
-              <a class="btn mb-2">Chat</a>
+              <a class="btn mb-2" href="{{ route('transactions.show', ['transaction_id' => $row]) }}">Chat</a>
             </div>
           </div>
         </div>
-
+        
+        @endforeach
     @endforeach
     @endif
 

@@ -34,7 +34,7 @@ class ProductController extends Controller
     {
         $seller = Auth::user()->seller;
 
-        $seller->products()->create([
+        $seller->product()->create([
             'game_name' => $request->game_name,
             'price' => $request->price,
             'product_name' => $request->product_name

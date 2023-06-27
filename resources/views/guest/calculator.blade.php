@@ -13,7 +13,6 @@
 
 <div>
   <div class="bg-tridary rounded-3xl text- bg-tridary hover:shadow-slate-900 hover:z-40 p-10">
-    <h1 class="text-center text-2xl font-semibold">Prakiraan Harga</h1>
     <form class="flex flex-col gap-6 text-slate-50 pt-5">
       <div>
       <x-input-label for="game_name" :value="__('Game Name :')" />

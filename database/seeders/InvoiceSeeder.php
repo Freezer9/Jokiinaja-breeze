@@ -17,26 +17,26 @@ class InvoiceSeeder extends Seeder
             [
                 'transaction_id' => 1,
                 'transaction_status' => 'Sudah Selesai!',
-                'total_amount' => '353408',
+                'total_amount' => '502500',
                 'invoice_name' => 'INV-20230602-MOB-L0H74',
             ],
             [
                 'transaction_id' => 2,
                 'transaction_status' => 'Dibatalkan!',
-                'total_amount' => '102500',
-                'invoice_name' => 'INV-20230608-PUB-AI0HW',
+                'total_amount' => '1002500',
+                'invoice_name' => 'INV-20230608-APE-AI0HW',
             ],
             [
                 'transaction_id' => 3,
                 'transaction_status' => 'Belum Dibayar',
-                'total_amount' => '402500',
-                'invoice_name' => 'INV-20230608-MOB-4GTFK',
+                'total_amount' => '702500',
+                'invoice_name' => 'INV-20230608-PUB-4GTFK',
             ],
             [
                 'transaction_id' => 4,
                 'transaction_status' => 'Sedang Dikerjakan',
-                'total_amount' => '402500',
-                'invoice_name' => 'INV-20230608-PUB-QB3FN',
+                'total_amount' => '1202500',
+                'invoice_name' => 'INV-20230608-CSG-QB3FN',
             ],
         ])->each(function ($invoice) {
             Invoice::create($invoice);

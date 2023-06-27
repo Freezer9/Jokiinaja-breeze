@@ -12,10 +12,10 @@ use Illuminate\Http\Request;
 
 class FormTransaksiController extends Controller
 {
-    public function index($game_type, $game_name, Seller $seller, Product $product)
+    public function index($sellerId, $productId)
     {
-        $product = Product::where('product_id', $product->product_id)->first();
-        $seller = Seller::where('seller_id', $seller->seller_id)->first();
+        $product = Product::where('product_id', $productId)->first();
+        $seller = Seller::where('seller_id', $sellerId)->first();
 
         return view('guest.order', compact(['product', 'seller']));
     }

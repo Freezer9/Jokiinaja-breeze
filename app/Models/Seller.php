@@ -13,7 +13,7 @@ class Seller extends Model
 
     protected $fillable = ['user_id', 'full_name', 'phone_number', 'address', 'profile_name', 'profile_description', 'gender', 'dob', 'user_type', 'image_id'];
 
-    public function products()
+    public function product()
     {
         return $this->hasMany(Product::class, 'seller_id', 'seller_id');
     }
@@ -21,5 +21,10 @@ class Seller extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
+
+    public function chat()
+    {
+        return $this->hasMany(Chat::class, 'chat_id', 'chat_id');
     }
 }
