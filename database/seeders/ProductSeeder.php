@@ -17,8 +17,74 @@ class ProductSeeder extends Seeder
             [
                 'seller_id' => 1,
                 'game_name' => 'Mobile Legends',
+                'product_name' => 'Mythical Honor - Mythic Glory',
+                'price' => 700000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Mythic V - Mythical Honor',
+                'price' => 600000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
                 'product_name' => 'Legend V - Mythic V',
                 'price' => 500000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Epic V - Legend V',
+                'price' => 400000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Grandmaster V - Epic V',
+                'price' => 300000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Master IV - Grandmaster V',
+                'price' => 200000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Elite IV - Master IV',
+                'price' => 100000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Warrior IV - Elite V',
+                'price' => 50000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Skin Gojo Satoru',
+                'price' => 700000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Skin Itadori Yuji',
+                'price' => 700000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Skin Megumi Fushiguro',
+                'price' => 700000,
+            ],
+            [
+                'seller_id' => 1,
+                'game_name' => 'Mobile Legends',
+                'product_name' => 'Skin Nobara Kugisaki',
+                'price' => 700000,
             ],
             [
                 'seller_id' => 1,
@@ -109,7 +175,14 @@ class ProductSeeder extends Seeder
                 'game_name' => 'NBA 2k22',
                 'product_name' => 'Stephen Curry',
                 'price' => 100000,
-            ]
+            ],
+            [
+                'seller_id' => 4,
+                'game_name' => 'Forza Horizon 4',
+                'product_name' => 'Mobil Mclaren Senna',
+                'price' => 100000,
+            ],
+
         ])->each(function ($product) {
             Product::create($product);
         });

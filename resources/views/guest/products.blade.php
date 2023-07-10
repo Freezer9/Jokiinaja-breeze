@@ -7,9 +7,9 @@
 
   
 <section class="container mx-auto md:px-14 px-5 py-3 pt-20 pb-10">
-  <h2 class="text-3xl font-bold">{{ $game_name }}</h2>
-  <div class="flex flex-wrap mt-3 -mx-2">
+      {{ $products->links() }}
 
+  <div class="flex flex-wrap mt-3 -mx-2">
     @foreach ($products as $product)
     
       <div class="w-3/6 md:w-3/12 p-2">
@@ -32,8 +32,8 @@
         </a>
       </div>
       
-    @endforeach
-      
+      @endforeach
+
   </div>
 </section>
 
