@@ -15,7 +15,7 @@
       <hr class="mt-2">
   
       <div class="mt-5 mb-5 bg-tridary rounded-lg p-10">
-        <form action="{{ route('products.store') }}" method="post" class="space-y-4 md:space-y-6">
+        <form action="{{ route('products.store') }}" method="post" class="space-y-4 md:space-y-6" enctype="multipart/form-data">
           @csrf
           <div class="flex space-x-3">
             <div class="w-1/3">
@@ -44,22 +44,18 @@
             <div class="w-1/3">
               <label for="product_name" class="block mb-2 text-sm font-medium ">Deskripsi Produk</label>
               <input type="text" name="product_name"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required placeholder="Rank 1 - Rank 100" value="{{ old('product_name')}}">
+              <x-input-error :messages="$errors->get('product_name')" class="mt-2" />
             </div>
           </div>
           <div class="flex space-x-3">
             <div class="w-1/2">
-              <label class="block mb-2 text-sm font-medium" for="image">Upload Image</label>
-              <input type="file" name="image" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:border-none file:h-full file:p-2.5">
+              <label class="block mb-2 text-sm font-medium" for="product_image">Product Image</label>
+              <input type="file" required name="product_image" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:border-none file:h-full file:p-2.5">
+              <x-input-error :messages="$errors->get('product_image')" class="mt-2" />
             </div>
             <input type="submit" class="w-1/2 bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm text-center cursor-pointer hover:text-indigo-300 mt-5 transition-colors">
           </div>
-          @error('product_name')
-          <div class="w-2/5">
-            <div class="mt-4 text-red-500 border border-red-500 rounded-lg bg-red-200 flex-1 py-2 px-3">
-              {{ $message }}
-            </div>
-          </div>
-          @enderror
+
         </form>
       </div>
   
@@ -81,10 +77,16 @@
         @else
 
             @foreach ($products as $product)
-              
-          <div class="w-1/2 md:w-3/12 p-2">
-            <div class="border rounded-lg bg-tridary">
-                <img src="{{ asset('storage/photo/' . $product->product_image ) }}" alt="product" class="rounded-t-lg aspect-square object-cover object-center inset-0 w-full h-full">
+
+            @php
+                $productImage = $product->product_image;
+                $defaultImage = 'defaultproduct.png'; // Nama file gambar default
+                $imagePath = 'storage/photo/' . ($productImage ? $productImage : $defaultImage);
+            @endphp
+        
+        <div class="w-1/2 md:w-3/12 p-2">
+          <div class="border rounded-lg bg-tridary">
+              <img src="{{ asset($imagePath) }}" alt="product" class="rounded-t-lg aspect-square object-cover object-center inset-0 w-full h-full">
                 <div class="py-2 px-4">
                   <p class="text-sm">{{ $product->game_name }}</p>
                   <div class="mt-2 flex flex-wrap justify-between align-center">

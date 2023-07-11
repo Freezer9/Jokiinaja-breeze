@@ -9,6 +9,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -38,7 +39,8 @@ class ProductController extends Controller
         $seller->product()->create([
             'game_name' => $request->game_name,
             'price' => $request->price,
-            'product_name' => $request->product_name
+            'product_name' => $request->product_name,
+            'product_image' => $request->product_image,
         ]);
 
         return back();
@@ -65,9 +67,15 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        $file = $request->file('product_image');
-        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
-        $file->storeAs('public/photo', $fileName);
+        if ($request->hasFile('product_image')) {
+            $file = $request->file('product_image');
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/photo/', $fileName);
+
+            Storage::delete('public/photo/' . $request->oldPhoto);
+        } else {
+            $fileName = $request->oldPhoto;
+        }
 
         $product->update([
             'game_name' => $request->input('product_game_name'),

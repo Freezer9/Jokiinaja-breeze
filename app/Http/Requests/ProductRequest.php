@@ -23,7 +23,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'product_name' => ['required', 'min:8'],
-            'product_image' => ['sometimes', 'file', 'image', 'mimes:png,jpg,jpeg', 'max:2048']
+            'product_image' => ['sometimes', 'file', 'image', 'mimes:png,jpg,jpeg', 'max:2048'],
         ];
     }
 }

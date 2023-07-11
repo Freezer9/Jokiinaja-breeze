@@ -11,8 +11,9 @@
     <div class="bg-white w-1/2 p-6 rounded-lg">
       <h2 class="text-2xl font-semibold mb-4 text-black text-center">Edit Product</h2>
       <form action="{{ route('products.update', $product->product_id) }}" method="post" class="flex flex-col gap-2" enctype="multipart/form-data">
-        @method('put')
         @csrf
+        @method('put')
+
         <label class="block mb-2 text-black">
           Game Name
           @php
@@ -36,12 +37,11 @@
           ];
           @endphp
       
-        <select name="product_game_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-            @foreach($gameOptions as $option)
-                <option value="{{ $option }}" {{ $product->game_name == $option ? 'selected' : '' }}>{{ $option }}</option>
-            @endforeach
-        </select>
-                      
+          <select name="product_game_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+              @foreach($gameOptions as $option)
+                  <option value="{{ $option }}" {{ $product->game_name == $option ? 'selected' : '' }}>{{ $option }}</option>
+              @endforeach
+          </select>
         </label>
 
         <label class="block mb-2 text-black">
@@ -49,25 +49,21 @@
           <input type="number" name="product_price" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ old('product_price') ?? $product->price }}" />
         </label>
 
+        @isset($product->product_image)
+          <input type="hidden" name="oldPhoto" value="{{ $product->product_image }}">
+        @endisset
+        
         <label class="block mb-2 text-black">
           Product Image
           <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:border-none file:h-full file:p-2.5" required type="file" name="product_image">
+          <x-input-error :messages="$errors->get('product_image')" />
         </label>
-        @error('product_image')
-        <div class="mt-2 text-red-500 border border-red-500 rounded-lg bg-red-200 flex-1 py-2 px-3">
-          {{ $message }}
-        </div>
-        @enderror
 
         <label class="block mb-2 text-black">
-          Description:
+          Product Name:
           <input name="product_name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ old('product_name') ?? $product->product_name }}" />
+          <x-input-error :messages="$errors->get('product_name')" />
         </label>
-        @error('product_name')
-          <div class="mt-2 text-red-500 border border-red-500 rounded-lg bg-red-200 flex-1 py-2 px-3">
-            {{ $message }}
-          </div>
-        @enderror
 
         <div class="flex justify-center">
           <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
