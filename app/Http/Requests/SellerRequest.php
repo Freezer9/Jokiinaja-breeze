@@ -22,12 +22,13 @@ class SellerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'profile_name' => ['required', 'min:5', 'max:15'],
+            'profile_name' => ['required', 'min:5', 'max:15', 'unique:sellers,profile_name,' . auth()->id() . ',user_id'],
             'full_name' => ['required', 'min:5', 'max:20'],
             'address' => ['required', 'min:8'],
             'gender' => ['required', 'min:3'],
             'dob' => ['required'],
             'profile_description' => ['required', 'min:8'],
+            'profile_image' => ['sometimes', 'file', 'image', 'mimes:png,jpg,jpeg', 'max:2048']
         ];
     }
 }

@@ -20,14 +20,23 @@ class SellerController extends Controller
     {
         $seller = Auth::user()->seller;
 
-        $seller->update([
+        $data = [
             'profile_name' => $request->input('profile_name'),
             'full_name' => $request->input('full_name'),
             'address' => $request->input('address'),
             'gender' => $request->input('gender'),
             'dob' => $request->input('dob'),
-            'profile_description' => $request->input('profile_description'),
-        ]);
+            'profile_description' => $request->input('profile_description')
+        ];
+
+        $file = $request->file('profile_image');
+        if ($file) {
+            $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/photo', $fileName);
+            $data['profile_image'] = $fileName;
+        }
+
+        $seller->update($data);
 
         return redirect()->route('products.index');
     }

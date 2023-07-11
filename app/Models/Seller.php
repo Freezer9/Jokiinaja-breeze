@@ -11,7 +11,7 @@ class Seller extends Model
 
     protected $primaryKey = 'seller_id';
 
-    protected $fillable = ['user_id', 'full_name', 'phone_number', 'address', 'profile_name', 'profile_description', 'gender', 'dob', 'user_type', 'image_id'];
+    protected $fillable = ['user_id', 'full_name', 'phone_number', 'address', 'profile_name', 'profile_description', 'gender', 'dob', 'user_type', 'profile_image'];
 
     public function product()
     {

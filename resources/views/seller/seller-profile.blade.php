@@ -2,7 +2,7 @@
   <div class="flex justify-center items-center w-full content-section md:my-0">
     <div class="flex flex-wrap justify-center items-center border bg-tridary rounded-xl w-11/12 md:w-9/12">
       <div class="md:w-6/12 w-full flex justify-end items-center h-full overflow-hidden">
-        <img src="/build/img/fifa23.jpg" alt="profile" class="sm:rounded-s-xl sm:rounded-none rounded-t-xl aspect-square inset-0 w-full h-full object-cover object-center">
+        <img src="{{ asset('storage/photo/' . $seller->profile_image ) }}" alt="profile" class="sm:rounded-s-xl sm:rounded-none rounded-t-xl aspect-square inset-0 w-full h-full object-cover object-center">
       </div>
       <div class="md:w-6/12 w-full flex flex-col justify-center items-start h-full md:px-10 px-5 py-3 md:py-0 ">
         <h3 class="text-2xl">Hi, <span class="font-semibold">{{ $seller->profile_name ?? 'there! Set up your Profile' }}</span></h3>

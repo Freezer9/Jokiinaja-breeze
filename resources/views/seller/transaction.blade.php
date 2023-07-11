@@ -9,13 +9,14 @@
 <section class="container mx-auto md:px-14 px-5 py-3">
   <div class="mb-5">
 
-    @isset($result)
+    @isset($results)
     
-    @if ($result->isEmpty())
+    @if ($results->isEmpty())
       <p class="w-full text-center text-2xl text-red-500 font-bold mt-5 mb-5">Your Transactions is Empty!</p>
+      
     @else
 
-    @foreach ($result as $product)
+    @foreach ($results as $product)
         @foreach ($product->transaction as $row)
             
     <div class="shadow-lg rounded-lg border mt-5 

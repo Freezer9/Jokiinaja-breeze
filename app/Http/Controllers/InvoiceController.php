@@ -16,7 +16,7 @@ class InvoiceController extends Controller
         $transaction = Auth::user()->seller->product()->with('transaction')->get();
 
         return view('seller.transaction', [
-            'result' => $transaction,
+            'results' => $transaction,
         ]);
     }
 

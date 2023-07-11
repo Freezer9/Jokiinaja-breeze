@@ -67,20 +67,24 @@
     <hr class="mt-2">
     <h2 class="text-3xl mt-16 font-bold text-center">Your Products </h2>
     <hr class="mt-2">
-  
+    
+    <div class="mt-4">
+      {{ $products->links() }}
+    </div>
+
       <div class="flex flex-wrap mt-3 mx-2">
 
-        @isset($seller->product)
+        @isset($products)
         
-        @if ($seller->product->isEmpty())
+        @if ($products->isEmpty())
             <p class="w-full text-center text-2xl text-red-500 font-bold mt-5 mb-5">Your Products is Empty!</p>
         @else
 
-            @foreach ($seller->product as $product)
+            @foreach ($products as $product)
               
           <div class="w-1/2 md:w-3/12 p-2">
             <div class="border rounded-lg bg-tridary">
-                <img src="/build/img/gta5.jpg" alt="product" class="rounded-t-lg aspect-square object-cover object-center inset-0 w-full h-full">
+                <img src="{{ asset('storage/photo/' . $product->product_image ) }}" alt="product" class="rounded-t-lg aspect-square object-cover object-center inset-0 w-full h-full">
                 <div class="py-2 px-4">
                   <p class="text-sm">{{ $product->game_name }}</p>
                   <div class="mt-2 flex flex-wrap justify-between align-center">

@@ -20,6 +20,8 @@ class User extends Authenticatable
 
     protected $primaryKey = 'user_id';
 
+    // protected $with = ['seller'];
+
     protected $fillable = [
         'username',
         'email',

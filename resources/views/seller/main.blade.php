@@ -11,7 +11,7 @@
     <div class="grid grid-cols-2 gap-4">
       <div class="bg-tridary p-6 rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold mb-4">Product Count</h2>
-        <p class="text-3xl font-bold">{{ ($seller == '[]') ? 0 : $seller }}</p>
+        <p class="text-3xl font-bold">1</p>
       </div>
       <div class="bg-tridary p-6 rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold mb-4">Completed Orders</h2>

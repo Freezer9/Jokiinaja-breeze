@@ -12,7 +12,9 @@ class Product extends Model
 
     protected $primaryKey = 'product_id';
 
-    protected $fillable = ['seller_id', 'game_name', 'product_name', 'price', 'updated_at'];
+    protected $fillable = ['seller_id', 'game_name', 'product_name', 'product_image', 'price', 'updated_at'];
+
+    protected $with = ['seller'];
 
     public function seller()
     {

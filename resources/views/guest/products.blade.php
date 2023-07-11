@@ -15,7 +15,7 @@
       <div class="w-3/6 md:w-3/12 p-2">
         <a href="/form-transaksi/{{ $product->seller->seller_id }}/{{ $product->product_id }}">
           <div class="bg-tridary hover:cursor-pointer hover:bg-blue-400 hover:transition-all transition-all rounded-xl border p-1 hover:scale-105">
-            <img src="/build/img/csgo.jpeg" alt="product" class="rounded-t-lg aspect-square object-cover object-center inset-0 w-full h-full">
+            <img src="{{ asset('storage/photo/' . $product->product_image ) }}" alt="product" class="rounded-t-lg aspect-square object-cover object-center inset-0 w-full h-full">
             <div class="py-2 px-4">
               <p class="text-sm font-medium">{{ $product->game_name }}</p>
               <div class="mt-2 flex flex-wrap justify-between align-center">

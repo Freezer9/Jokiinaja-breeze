@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('seller_id')->constrained('sellers', 'seller_id')->onDelete('cascade');
             $table->string('game_name', 80);
             $table->string('product_name', 100);
+            $table->string('product_image', 128)->nullable();
             $table->integer('price');
             $table->timestamps();
         });

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->date('dob')->nullable();
             $table->string('user_type', 20)->nullable();
-            $table->integer('image_id')->nullable();
+            $table->string('profile_image', 128)->nullable();
             $table->timestamps();
         });
     }

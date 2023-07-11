@@ -10,7 +10,7 @@
   <div id="editNotification" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 transition-opacity duration-300">
     <div class="bg-white w-1/2 p-6 rounded-lg">
       <h2 class="text-2xl font-semibold mb-4 text-black text-center">Edit Product</h2>
-      <form action="{{ route('products.update', $product->product_id) }}" method="post" class="flex flex-col gap-2">
+      <form action="{{ route('products.update', $product->product_id) }}" method="post" class="flex flex-col gap-2" enctype="multipart/form-data">
         @method('put')
         @csrf
         <label class="block mb-2 text-black">
@@ -43,14 +43,22 @@
         </select>
                       
         </label>
+
         <label class="block mb-2 text-black">
           Price:
           <input type="number" name="product_price" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ old('product_price') ?? $product->price }}" />
         </label>
-        {{-- <label class="block mb-2 text-black">
-          Upload Image
-          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:border-none file:h-full file:p-2.5" type="file" name="image">
-        </label> --}}
+
+        <label class="block mb-2 text-black">
+          Product Image
+          <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:border-none file:h-full file:p-2.5" required type="file" name="product_image">
+        </label>
+        @error('product_image')
+        <div class="mt-2 text-red-500 border border-red-500 rounded-lg bg-red-200 flex-1 py-2 px-3">
+          {{ $message }}
+        </div>
+        @enderror
+
         <label class="block mb-2 text-black">
           Description:
           <input name="product_name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ old('product_name') ?? $product->product_name }}" />
@@ -60,6 +68,7 @@
             {{ $message }}
           </div>
         @enderror
+
         <div class="flex justify-center">
           <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save</button>
           <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md ml-2">Cancel</button>

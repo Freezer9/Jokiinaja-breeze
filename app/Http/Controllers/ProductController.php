@@ -14,10 +14,11 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $products = Auth::user()->seller->product()->paginate(8);
         $seller = Auth::user()->seller;
         $user = Auth::user();
 
-        return view('seller.product', compact(['seller', 'user']));
+        return view('seller.product', compact(['products', 'user', 'seller']));
     }
 
     /**
@@ -64,9 +65,14 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
+        $file = $request->file('product_image');
+        $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/photo', $fileName);
+
         $product->update([
             'game_name' => $request->input('product_game_name'),
             'product_name' => $request->input('product_name'),
+            'product_image' => $fileName,
             'price' => $request->input('product_price'),
             'updated_at' => Carbon::now(),
         ]);
