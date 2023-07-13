@@ -4,7 +4,7 @@
   
   @include('components.seller-profile')
 
-  @include('components.form-transaksi')
+  @livewire('guest-form-transaction', ['product' => $product, 'seller' => $seller])
 
   @include('components.card-product')
 

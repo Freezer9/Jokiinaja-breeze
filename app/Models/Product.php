@@ -14,8 +14,6 @@ class Product extends Model
 
     protected $fillable = ['seller_id', 'game_name', 'product_name', 'product_image', 'price', 'updated_at'];
 
-    protected $with = ['seller'];
-
     public function seller()
     {
         return $this->belongsTo(Seller::class, 'seller_id', 'seller_id');

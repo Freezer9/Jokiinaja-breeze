@@ -15,11 +15,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Auth::user()->seller->product()->paginate(8);
-        $seller = Auth::user()->seller;
-        $user = Auth::user();
-
-        return view('seller.product', compact(['products', 'user', 'seller']));
+        return view('seller.product');
     }
 
     /**
@@ -32,18 +28,8 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductRequest $request)
+    public function store()
     {
-        $seller = Auth::user()->seller;
-
-        $seller->product()->create([
-            'game_name' => $request->game_name,
-            'price' => $request->price,
-            'product_name' => $request->product_name,
-            'product_image' => $request->product_image,
-        ]);
-
-        return back();
     }
 
     /**

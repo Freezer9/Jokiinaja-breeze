@@ -10,6 +10,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SellerController;
+use App\Http\Livewire\GuestProduct;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,7 +47,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/game/{game_type}', GameTypeController::class);
 
     // Pilih Spesifik Game
-    Route::get('/game/{game_type}/{game_name}', [GameController::class, 'index']);
+    Route::get('/game/{game_type}/{game_name}', GameController::class);
 
     // Form Transaksi
     Route::get('/form-transaksi/{seller_id}/{product_id}', [FormTransaksiController::class, 'index']);

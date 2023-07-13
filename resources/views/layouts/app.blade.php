@@ -17,7 +17,11 @@
         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        {{-- Styles --}}
         <link rel="stylesheet" href="/build/css/app.css">
+        @livewireStyles
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen">
@@ -40,5 +44,6 @@
         @include('layouts.footer')
 
     <script src="build/js/app.js"></script>
+    @livewireScripts
     </body>
 </html>

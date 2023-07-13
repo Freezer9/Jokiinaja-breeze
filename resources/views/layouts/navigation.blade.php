@@ -63,9 +63,11 @@
                 </x-dropdown>
             </div>
 
-                @else
+            @else
 
-                        <!-- Guest Navigation Links -->
+            <div class="flex">
+
+                <!-- Guest Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('Home') }}
@@ -82,7 +84,7 @@
                 </div>
                 
                 <!-- Guest Login Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-20 sm:flex">
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('Login') }}
                     </x-nav-link>
@@ -92,7 +94,8 @@
                         {{ __('Register') }}
                     </x-nav-link>
                 </div>
-
+                
+            </div>
                 
             @endauth
             
@@ -113,6 +116,18 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                {{ __('Home') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('checkinvoice')" :active="request()->routeIs('checkinvoice')">
+                {{ __('Check Invoice') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('calculatorjoki')" :active="request()->routeIs('calculatorjoki')">
+                {{ __('Calculator Joki') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contactus')" :active="request()->routeIs('contactus')">
+                {{ __('Contact Us') }}
             </x-responsive-nav-link>
         </div>
 
