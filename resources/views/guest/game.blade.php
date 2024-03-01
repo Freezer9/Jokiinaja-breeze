@@ -23,6 +23,11 @@
 
       @if ($game_type === 'Mobile Game')
           
+      <h6>
+        <div>
+          Halo Anjay
+        </div>
+      </h6>
       <div class="grid grid-cols-4 gap-4 w-2/3">
         <a href="/game/{{ $game_type }}/{{ 'Mobile Legends'}}" class="hover:z-40 hover:cursor-pointer hover:bg-blue-400 hover:transition-all rounded-xl border p-1 hover:scale-105 transition-all">
           <img src="/build/img/ml.jpg" alt="Game Image" class="rounded-t-xl" />

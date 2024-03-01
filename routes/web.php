@@ -51,18 +51,18 @@ Route::middleware('guest')->group(function () {
 
     // Form Transaksi
     Route::get('/form-transaksi/{seller_id}/{product_id}', [FormTransaksiController::class, 'index']);
-    Route::post('/transactions/{product_id}', [FormTransaksiController::class, 'store'])->name('transaction.store');
+    // Route::post('/transactions/{product_id}', [FormTransaksiController::class, 'store'])->name('transaction.store');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/main', HomeController::class)->name('main');
     Route::get('/transactions', [InvoiceController::class, 'index'])->name('transactions.index');
-    Route::get('/transactions/{transaction_id}', [InvoiceController::class, 'show'])->name('transactions.show');
+    // Route::get('/transactions/{transaction_id}', [InvoiceController::class, 'show'])->name('transactions.show');
     Route::resource('/products', ProductController::class);
 
     // Seller
-    Route::get('/seller/{seller_id}', [SellerController::class, 'edit'])->name('seller.edit');
-    Route::put('/seller', [SellerController::class, 'update'])->name('seller.update');
+    // Route::get('/seller/{seller_id}', [SellerController::class, 'edit'])->name('seller.edit');
+    // Route::put('/seller', [SellerController::class, 'update'])->name('seller.update');
 
     Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
