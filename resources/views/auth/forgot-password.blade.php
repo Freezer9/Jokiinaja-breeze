@@ -8,7 +8,7 @@
     <div class="mx-36 grid grid-cols-2 gap-16 pt-20 mb-20">
         
     @include('layouts.card', 
-    ['text' => 'Forgot Your Password?', 'description' => 'Damn such a lazy man', 'img_path' => '/build/img/forgot.jpg'])
+    ['text' => 'Forgot Your Password?', 'description' => 'Damn such a lazy man', 'img_path' => '/img/forgot.jpg'])
 
     <div class="border rounded-3xl p-10 transition-all hover:transition-all hover:shadow-slate-700 hover:shadow-xl h-max">
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">

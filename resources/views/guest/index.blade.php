@@ -12,7 +12,7 @@
 
     <div class="header__right">
       <div class="header__right-image">
-        <img src="build/img/home.png" class="mb-4">
+        <img src="img/home.png" class="mb-4">
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@
   <div class="container game__container">
     <article class="game">
       <div class="game__image">
-        <img src="build/img/pcgame.png">
+        <img src="img/pcgame.png">
       </div>
       <div class="game__info">
         <h4 class="font-semibold">PC Game</h4>
@@ -89,7 +89,7 @@
 
     <article class="game">
       <div class="game__image">
-        <img src="build/img/mobilegame.jpg">
+        <img src="img/mobilegame.jpg">
       </div>
       <div class="game__info">
         <h4 class="font-semibold">Mobile Game</h4>

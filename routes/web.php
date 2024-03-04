@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CheckInvoiceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormTransaksiController;

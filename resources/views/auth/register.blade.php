@@ -8,7 +8,7 @@
     <div class="mx-36 grid grid-cols-2 gap-16 pt-20 mb-10">
             
         @include('layouts.card', 
-        ['text' => 'Register Your Services Now!', 'description' => 'Go get your first limited reward you got here!', 'img_path' => '/build/img/register.webp'])
+        ['text' => 'Register Your Services Now!', 'description' => 'Go get your first limited reward you got here!', 'img_path' => '/img/register.webp'])
 
         <div class="border rounded-3xl p-10 transition-all hover:scale-105 hover:transition-all hover:shadow-slate-700 hover:shadow-xl h-max">
             <form method="POST" action="{{ route('register') }}">

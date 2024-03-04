@@ -8,7 +8,7 @@
     <div class="mx-36 grid grid-cols-2 gap-16 pt-20 mb-10">
         
     @include('layouts.card', 
-    ['text' => 'Login to reward', 'description' => 'Get a special reward if you login', 'img_path' => '/build/img/login.jpg'])
+    ['text' => 'Login to reward', 'description' => 'Get a special reward if you login', 'img_path' => '/img/login.jpg'])
 
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />

@@ -19,7 +19,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         {{-- Styles --}}
-        <link rel="stylesheet" href="/build/css/app.css">
+        <link rel="stylesheet" href="/css/app.css">
         @livewireStyles
 
     </head>
@@ -43,7 +43,7 @@
         </div>
         @include('layouts.footer')
 
-    <script src="build/js/app.js"></script>
+    <script src="/js/app.js"></script>
     @livewireScripts
     </body>
 </html>
